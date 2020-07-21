@@ -8,6 +8,7 @@ try {
     //Environments of the project
     module.exports = {
         port: parsed.PORT,
+        mongodb: parsed.MONGODB,
     };
     console.log("Success ENV: ", parsed);
 } catch (err) {

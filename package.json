@@ -20,7 +20,11 @@
   "homepage": "https://github.com/EmmanuelAyTuz/test-fastify#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "fastify": "^3.1.1"
+    "fastify": "^3.1.1",
+    "fastify-boom": "^0.1.0",
+    "fastify-formbody": "^4.0.3",
+    "fastify-raw-body": "^3.0.0",
+    "mongoose": "^5.9.25"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
