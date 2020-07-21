@@ -1,4 +1,4 @@
-const Task = require("../models/task.model");
+const Task = require("../../models/v1/task.model");
 const createError = require('http-errors')
 
 const newSingle = async (req, rep) => {
@@ -9,7 +9,7 @@ const newSingle = async (req, rep) => {
 const showAll = async (req, rep) => {
     const tasks = await Task.find();
     if (tasks.length < 1) {
-        throw createError(404, 'No documents found', { header: { 'X-Req-Id': req.id, id: req.params.id } })
+        throw createError(404, 'No documents found', { header: { 'X-Req-Id': req.id, id: null } })
     }
     return tasks;
 }
@@ -34,4 +34,25 @@ const deleteSingle = async (req, rep) => {
     }
     return task;
 }
-module.exports = { showAll, showSingle, newSingle, editSingle, deleteSingle };
+
+const deleteMany = async (req, rep) => {
+    let query = {};
+    if (req.query.id) {
+        query = {
+            _id: {
+                $in: req.query.id,
+            }
+        };
+    }
+
+    if (req.query.tag) {
+        query = {
+            tag: req.query.tag,
+        };
+    }
+
+    const task = await Task.deleteMany(query);
+    return task;
+}
+
+module.exports = { showAll, showSingle, newSingle, editSingle, deleteSingle, deleteMany };
