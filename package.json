@@ -21,9 +21,11 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "fastify": "^3.1.1",
-    "fastify-boom": "^0.1.0",
+    "fastify-errors-properties": "^0.7.0",
     "fastify-formbody": "^4.0.3",
     "fastify-raw-body": "^3.0.0",
+    "fastify-response-validation": "^0.1.0",
+    "http-errors": "^1.8.0",
     "mongoose": "^5.9.25"
   },
   "devDependencies": {
