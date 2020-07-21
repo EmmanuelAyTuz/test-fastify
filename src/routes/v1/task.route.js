@@ -3,8 +3,8 @@ const taskController = require("../../controllers/task.controller");
 
 //Routes and action
 const routes = async (fastify, options) => {
-    fastify.get('/user/all', taskController.showAll);
-    fastify.post('/user/new', {
+    fastify.get('/task/all', taskController.showAll);
+    fastify.post('/task/new', {
         config: {
             rawBody: true //req.rawBody
         },

@@ -20,7 +20,7 @@ fastify.register(require('fastify-raw-body'), {
 
 //Routes
 fastify.register(require("./src/routes/home.route"));
-fastify.register(require("./src/routes/v1/user.route"), { prefix: '/v1', logLevel: 'debug' });
+fastify.register(require("./src/routes/v1/task.route"), { prefix: '/v1', logLevel: 'debug' });
 
 //Init server
 const start = async () => {
