@@ -1,0 +1,23 @@
+{
+  "name": "test-fastify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmmanuelAyTuz/test-fastify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmmanuelAyTuz/test-fastify/issues"
+  },
+  "homepage": "https://github.com/EmmanuelAyTuz/test-fastify#readme",
+  "dependencies": {
+    "fastify": "^3.1.1"
+  }
+}
