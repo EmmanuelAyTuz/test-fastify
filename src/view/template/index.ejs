@@ -1,0 +1,26 @@
+<html lang="es-mx">
+<!-- Header -->
+<%- include(header.file, {title: header.title}) -%>
+<!-- Header -->
+
+<body>
+    <!-- Nav -->
+    <%- include(nav.file) -%>
+    <!-- Nav -->
+
+    <!-- Content -->
+    <main class="container pt-4">
+        <%- include(main.file, {data: main.data, error: main.error}) -%>
+    </main>
+    <!-- Content -->
+
+    <!-- Extra -->
+    <%- include('../partials/extra.ejs') -%>
+    <!-- Extra -->
+
+    <!-- Footer -->
+    <%- include(footer.file) -%>
+    <!-- Footer -->
+</body>
+
+</html>

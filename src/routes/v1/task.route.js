@@ -41,6 +41,10 @@ const deleteSingleSchema = {
 
 //Routes and action
 const routes = async (fastify, options) => {
+
+    //Routes
+    fastify.get('/task/new', {}, taskController.formNew);
+
     fastify.post('/task/new', {
         config: {
             rawBody: true //req.rawBody
@@ -51,29 +55,31 @@ const routes = async (fastify, options) => {
         config: {
             rawBody: true //req.rawBody
         },
-    }, taskController.showAll); //Ex: GET /{ver}/task/all
+    }, taskController.formAll); //Ex: GET /{ver}/task/all
 
     fastify.get('/task/:id', {
         config: {
             rawBody: true //req.rawBody
         },
-    }, taskController.showSingle); //Ex: GET /{ver}/task/128
+    }, taskController.formDetail); //Ex: GET /{ver}/task/128
 
-    fastify.put('/task/edit/:id', {
+    fastify.get('/task/edit/:id', {}, taskController.formEdit);
+
+    fastify.post('/task/edit/:id', {
         config: {
             rawBody: true //req.rawBody
         },
         editSingleSchema,
     }, taskController.editSingle); //Ex: PUT /{ver}/task/edit?id=128
 
-    fastify.delete('/task/del/:id', {
+    fastify.post('/task/del/:id', {
         config: {
             rawBody: true //req.rawBody
         },
         deleteSingleSchema,
     }, taskController.deleteSingle);//Ex: DELETE /{ver}/task/del/128
 
-    fastify.delete('/task/del', {
+    fastify.post('/task/del', {
         config: {
             rawBody: true //req.rawBody
         },

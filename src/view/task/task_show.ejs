@@ -1,0 +1,49 @@
+<% if(!error){ %>
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Index</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Tag</th>
+                <th>Details</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% let i = 1; %>
+            <% data.forEach((d)=>{ %>
+            <tr>
+                <td><%= i++ %></td>
+                <td><%= d.title %></td>
+                <td><%= d.description %></td>
+                <td><%= d.tag %></td>
+                <td>
+                    Created: <%= d.createdAt.toLocaleString() %>
+                    <hr>
+                    Updated: <%= d.updatedAt.toLocaleString() %>
+                </td>
+                <td>
+                    <div class=" btn-group pb-2">
+                        <a href="/v1/task/edit/<%= d._id %>" class="btn btn-primary btn-sm">Update</a>
+                        <div class="pb-2"></div>
+                        <a href=" /v1/task/<%= d._id %>" class="btn btn-info btn-sm">More</a>
+                    </div>
+                    <div>
+                        <form method="POST" action="/v1/task/del/<%- d._id %>">
+                            <button type="submit" class="btn btn-danger btn-sm"">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<% } else { %>
+<div class=" list-group">
+                                <a href="/v1/task/new"
+                                    class="list-group-item list-group-item-action list-group-item-warning"><%- error %></a>
+                    </div>
+                    <% } %>

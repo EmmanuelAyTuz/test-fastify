@@ -1,6 +1,12 @@
+const homeController = require("../controllers/home.controller");
+
 const routes = async (fastify, options) => {
-    fastify.get('/', async (request, reply) => {
-        return { message: 'Welcome to Home!' };
+    fastify.get('/', {}, homeController.home);
+
+    fastify.get('/test', (req, rep) => {
+        req.flash('warning', ['username required', 'password required']);
+        const warning = rep.flash('warning');
+        rep.send({ warning }); // {"warning":["username required","password required"]}
     });
 }
 

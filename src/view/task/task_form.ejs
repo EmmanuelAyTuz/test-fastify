@@ -1,0 +1,18 @@
+<%
+    let title = '';
+    let description = '';
+    if(data.form.data) {
+        title = data.form.data.title;
+        description = data.form.data.description;
+    }
+%>
+<form action="<%= data.form.action %>" method="POST">
+    <div class="form-group">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="<%= title %>">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" id="description" name="description" rows="3"
+            placeholder="Description"><%= description %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary"><%= data.form.btn %></button>
+</form>
